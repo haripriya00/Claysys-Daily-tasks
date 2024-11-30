@@ -1,0 +1,89 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dceda4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the form */
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Heading style */
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Label style */
+label {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input fields style */
+input[type="email"], 
+input[type="password"], 
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Input fields focus style */
+input[type="email"]:focus, 
+input[type="password"]:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/* Submit button style */
+input[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* Remember me checkbox */
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Forgot password and sign up links */
+a {
+    text-decoration: none;
+    color: #4a90e2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Sign up paragraph */
+p {
+    font-size: 14px;
+    color: #777;
+}
