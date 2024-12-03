@@ -1,0 +1,131 @@
+/* General styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Section */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #95859245;
+    padding: 10px 20px;
+    color: hwb(295 5% 51% / 0.819);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px;
+    margin-right: 10px;
+}
+
+header .logo h1 {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: hwb(295 5% 51% / 0.819);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #d7be2e;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.about-us {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-us h2 {
+    color: #444;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.about-us p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.highlight {
+    color: hwb(295 5% 51% / 0.819);
+    font-weight: bold;
+}
+
+/* Footer styling */
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 8px ;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer .social-icons {
+    margin: 10px 0;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+footer .social-icons a:hover {
+    color: #e67e22;
+}
+
+footer p {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+}
+
+/* Icon sizes */
+.fa {
+    padding: 10px;
+    border-radius: 50%;
+}
+
+/* Styling the image */
+.about-image {
+    width: 100%; /* Makes the image responsive */
+    max-width: 1200px; /* Ensures the image doesn't exceed the container width */
+    margin: 20px 0; /* Adds spacing around the image */
+    display: block; /* Makes the image block-level */
+    object-fit: cover; /* Ensures the image covers the allocated space without distortion */
+}
