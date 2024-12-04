@@ -1,0 +1,111 @@
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Section */
+header {
+    display: flex; /* uses flexbox to display contents in a flexible manner */
+    justify-content: space-between; /* Keeps the logo and navigation on opposite ends */
+    align-items: center;
+    background-color: #95859245;
+    padding: 10px 20px;
+    color: hwb(295 5% 51% / 0.819);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px;
+    margin-right: 10px; /* Space between the logo and the text */
+}
+
+header .logo h1 {
+    font-size: 1.5rem;
+    margin: 0; /* Ensures no extra margin */
+}
+
+/* Navigation Section */
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: hwb(295 5% 51% / 0.819);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #685b0f;
+}
+
+/* Form Styling */
+.registration-form {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px solid #000000;
+    border-radius: 5px;
+}
+
+.registration-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #771172;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.registration-form input[type="submit"] {
+    background-color: #771172;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+}
+
+.registration-form input[type="submit"]:hover {
+    background-color: #a79c33;
+}
+
+/* Footer Section */
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}

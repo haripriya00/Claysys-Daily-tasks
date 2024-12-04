@@ -1,0 +1,154 @@
+/* Global Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;  /* Centers form horizontally */
+  align-items: center;      /* Centers form vertically */
+  height: 100vh;   
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #95859245;
+  padding: 10px 20px;
+  color: hwb(295 5% 51% / 0.819);
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures header stays on top */
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 80px;
+  margin-right: 10px;
+}
+
+header .logo h1 {
+  font-size: 1.5rem;
+  margin: 0; /* Ensures no extra margin */
+}
+
+/* Navigation Section */
+header nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: hwb(295 5% 51% / 0.819);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #d7be2e;
+}
+
+/* Login Form Section */
+.login-form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  border: 3px solid #000000;
+  max-width: 100%;
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 20px;  /* Adjusted margin for consistency */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Adjusting the checkbox label spacing */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-options label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+.form-options input[type="checkbox"] {
+  margin-right: 5px; /* Adjust space between checkbox and label */
+}
+
+button {
+  background-color:hwb(295 5% 51% / 0.819);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #45a049;  /* Darker green on hover */
+}
+
+/* Sign Up Link Section */
+.signup-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Section */
+footer {
+  background-color: #000000;
+  color: white;
+  padding: 8px ;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}

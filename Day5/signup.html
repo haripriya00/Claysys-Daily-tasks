@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Luna Designs</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="C:\Users\HARIPRIYA\Downloads\circular_logo.png" alt="Logo">
+            <h1>Luna Designs</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="registration-form">
+        <h2>Sign Up</h2>
+        <form id="signup-form" onsubmit="return validateForm()">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required onfocusout="validateName(this, 'firstName')">
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required onfocusout="validateName(this, 'lastName')">
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required onfocusout="calculateAge()">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" readonly>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" onfocusout="validatePhone()">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required onfocusout="validateEmail()">
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <label for="state">State:</label>
+            <select id="state" onchange="updateCityOptions()">
+                <option value="">Select State</option>
+                <option value="kerala">Kerala</option>
+                <option value="tamilnadu">Tamil Nadu</option>
+                <option value="karnataka">Karnataka</option>
+            </select>
+
+            <label for="city">City:</label>
+            <select id="city">
+                <option value="">Select City</option>
+            </select>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required onfocusout="validateUsername()">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required onfocusout="validatePassword()">
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required onfocusout="validateConfirmPassword()">
+
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Luna Designs. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const errorFlags = {
+            firstName: false,
+            lastName: false,
+            dob: false,
+            gender: false,
+            phone: false,
+            email: false,
+            username: false,
+            password: false,
+            confirmPassword: false,
+        };
+
+        function validateName(field, fieldName) {
+            const nameRegex = /^[A-Za-z]+$/;
+            if (!nameRegex.test(field.value.trim())) {
+                if (!errorFlags[fieldName]) {
+                    alert(`${fieldName === "firstName" ? "First" : "Last"} Name should contain only alphabets.`);
+                    errorFlags[fieldName] = true;
+                }
+                field.focus();
+            } else {
+                errorFlags[fieldName] = false;
+            }
+        }
+
+        function calculateAge() {
+            const dob = document.getElementById('dob').value;
+            const ageField = document.getElementById('age');
+
+            if (dob) {
+                const dobDate = new Date(dob);
+                const today = new Date();
+                let age = today.getFullYear() - dobDate.getFullYear();
+                const monthDiff = today.getMonth() - dobDate.getMonth();
+
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobDate.getDate())) {
+                    age--;
+                }
+
+                if (dobDate > today) {
+                    alert("Date of Birth cannot be in the future.");
+                    ageField.value = '';
+                    return;
+                }
+
+                if (age < 18) {
+                    alert("Age must be 18 or above.");
+                    ageField.value = '';
+                } else {
+                    ageField.value = age;
+                }
+            }
+        }
+
+        const stateCityMap = {
+            kerala: ["Kochi", "Thiruvananthapuram", "Kozhikode"],
+            tamilnadu: ["Chennai", "Coimbatore", "Madurai"],
+            karnataka: ["Bengaluru", "Mysuru", "Mangaluru"]
+        };
+
+        function updateCityOptions() {
+            const state = document.getElementById('state').value;
+            const cityDropdown = document.getElementById('city');
+
+            cityDropdown.innerHTML = '<option value="">Select City</option>';
+
+            if (state && stateCityMap[state]) {
+                stateCityMap[state].forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.toLowerCase();
+                    option.textContent = city;
+                    cityDropdown.appendChild(option);
+                });
+            }
+        }
+
+        function validatePhone() {
+            const phone = document.getElementById('phone').value;
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Phone number must be exactly 10 digits.");
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+            }
+        }
+
+        function validateUsername() {
+            const username = document.getElementById('username').value;
+            const usernameRegex = /^[a-zA-Z0-9_]{5,15}$/;
+            if (!usernameRegex.test(username)) {
+                alert("Username must be 5-15 characters long and can contain letters, numbers, and underscores only.");
+                errorFlags.username = true;
+            } else {
+                errorFlags.username = false;
+            }
+        }
+
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters long, include at least one uppercase letter, one special character, and one digit.");
+            }
+        }
+
+        function validateConfirmPassword() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+            }
+        }
+
+        function validateForm() {
+            validateName(document.getElementById('first-name'), "firstName");
+            validateName(document.getElementById('last-name'), "lastName");
+            calculateAge();
+            validatePhone();
+            validateEmail();
+            validateUsername();
+            validatePassword();
+            validateConfirmPassword();
+
+            if (!document.getElementById('gender').value) {
+                alert("Please select a gender.");
+                return false;
+            }
+
+            return !Object.values(errorFlags).includes(true);
+        }
+    </script>
+</body>
+</html>
