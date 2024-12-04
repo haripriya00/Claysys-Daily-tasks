@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactus - Luna Designs</title>
+    <link rel="stylesheet" href="contactus.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="C:\Users\HARIPRIYA\Downloads\circular_logo.png" alt="Designer Wears Logo">
+            <h1>Luna Designs</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Contact Us</h1>
+        <p>Feel free to reach out to us at contact@lunadesigns.com or call us at +1 234 567 890.</p>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" onfocusout="validateName()">
+            <small id="nameError" class="error-message"></small>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" onfocusout="validateEmail()">
+            <small id="emailError" class="error-message"></small>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" onfocusout="validatePhone()">
+            <small id="phoneError" class="error-message"></small>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" onfocusout="validateMessage()"></textarea>
+            <small id="messageError" class="error-message"></small>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Luna Designs. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Validate Name
+        function validateName() {
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            const name = nameInput.value.trim();
+
+            if (name === '') {
+                nameError.textContent = 'Name is required.';
+            } else if (!/^[a-zA-Z\s]+$/.test(name)) {
+                nameError.textContent = 'Name can only contain letters and spaces.';
+            } else {
+                nameError.textContent = '';
+            }
+        }
+
+        // Validate Email
+        function validateEmail() {
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const email = emailInput.value.trim();
+
+            if (email === '') {
+                emailError.textContent = 'Email is required.';
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                emailError.textContent = 'Enter a valid email address.';
+            } else {
+                emailError.textContent = '';
+            }
+        }
+
+        // Validate Phone
+        function validatePhone() {
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const phone = phoneInput.value.trim();
+
+            if (phone === '') {
+                phoneError.textContent = 'Phone number is required.';
+            } else if (!/^\d{10}$/.test(phone)) {
+                phoneError.textContent = 'Enter a valid 10-digit phone number.';
+            } else {
+                phoneError.textContent = '';
+            }
+        }
+
+        // Validate Message
+        function validateMessage() {
+            const messageInput = document.getElementById('message');
+            const messageError = document.getElementById('messageError');
+            const message = messageInput.value.trim();
+
+            if (message === '') {
+                messageError.textContent = 'Message is required.';
+            } else {
+                messageError.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
